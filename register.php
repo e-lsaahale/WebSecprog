@@ -19,33 +19,33 @@
 
     <div>
         <div class="nunito mid-bar flex align-center justify-center">
-            <form>
+            <form action="./Controller/register_auth.php" method="POST">
                 <div class="input-group">
-                    <input required="required" type="text" autocomplete="off" class="input">
+                    <input name="name" id="name" required="required" type="text" autocomplete="off" class="input">
                     <label class="user-label">Name</label>
                   </div>
                   <br>
                   <div class="input-group">
-                    <input required="required" type="text" autocomplete="off" class="input">
+                    <input name="username" id="username" required="required" type="text" autocomplete="off" class="input">
                     <label class="user-label">Username</label>
                   </div>
                   <br>
                   <div class="input-group">
-                    <input required="required" type="text" autocomplete="off" class="input">
+                    <input name="email" id="email" required="required" type="text" autocomplete="off" class="input">
                     <label class="user-label">Email</label>
                   </div>
                   <br>
                   <div class="input-group">
-                    <input required="required" type="number" oninput="this.value=this.value.replace(/[^\d]/,'')" autocomplete="off" class="input">
+                    <input name="age" id="age" required="required" type="number" oninput="this.value=this.value.replace(/[^\d]/,'')" autocomplete="off" class="input">
                     <label class="user-label">Age</label>
                   </div>
                   <br>
                   <div class="input-group">
-                    <input required="required" type="password" autocomplete="off" class="input">
+                    <input name="password" id="password" required="required" type="password" autocomplete="off" class="input">
                     <label class="user-label">Password</label>
                   </div>
                   <br><br>
-                  <button class="btn nunito">Login</button>
+                  <button class="btn nunito" onclick="return inputValidation()">Login</button>
             </form>
         </div>
 
@@ -55,6 +55,8 @@
 
     </div>
     
-    
-</body>
+    </body>
+
+  <script src="./Assets/regscript.js"></script>
+
 </html>
