@@ -30,7 +30,7 @@ USE `bcc`;
 --
 
 CREATE TABLE `users` (
-  `Id` VARCHAR(11) NOT NULL,
+  `Id` int(11) NOT NULL,
   `Name` varchar(25) NOT NULL,
   `Username` varchar(16) NOT NULL,
   `Email` varchar(255) NOT NULL,
@@ -49,7 +49,7 @@ INSERT INTO `users` (`Id`, `Name`, `Username`, `Email`, `Age`, `Passwd`) VALUES
 (4, 'brykun', 'bryant', 'bryant69@gmail.com', 21, 'bryant1234');
 
 ALTER TABLE users
-MODIFY COLUMN Id VARCHAR(11)  AUTO_INCREMENT, AUTO_INCREMENT = 5,
+MODIFY COLUMN Id INT  AUTO_INCREMENT, AUTO_INCREMENT = 5,
 ADD PRIMARY KEY(Id);
 
 ALTER TABLE users
