@@ -8,7 +8,7 @@
         header("Location: ./register.php");
     } else if($length > 25) {
         header("Location: ./register.php");
-    }
+    } else if($)
 
     $usermame = $_POST['username'];
     $length = strlen($username);
@@ -39,6 +39,10 @@
         header("Location: ./register.php");
     }
 
-    
+    $query = "INSERT INTO users VALUE (name =?, username =?, email =?, age =?, passwd =?)"
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("sssss", $fullname, $username, $email, $age, $pass);
+    $stmt ->execute();
+    $conn->close();
   }
 ?>
