@@ -1,13 +1,14 @@
 function InputLength() {
 
-    var usnInput = document.getElementById("username").value;
+    var usnInput = document.getElementById("username").value.trim();
     var usnLength = usnInput.length;
 
     var passInput = document.getElementById("password").value;
     var passLength = passInput.length
 
     if(usnLength == 0){
-        alert("Username can not be empty");
+        alert("Username cannot be empty");
+        return false;
     }
     else{
         if(usnLength < 6 || usnLength > 16) {
@@ -15,7 +16,7 @@ function InputLength() {
             return false;
         }
         else if(passLength == 0) {
-            alert("Password can not be empty");
+            alert("Password cannot be empty");
             return false;
         }
     }
@@ -26,7 +27,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const errorParam = urlParams.get('error');
 
 if (errorParam === '1') {
-    alert("Username atau password salah.");
+    alert("Invalid username or password");
 
     const newUrl = window.location.pathname;
     history.replaceState({}, document.title, newUrl);

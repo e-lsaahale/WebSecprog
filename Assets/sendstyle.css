@@ -29,7 +29,7 @@ body{
 .top-bar{
     position: absolute;
     width: 100vw;
-    height: 15vh;
+    height: 10vh;
     border: solid blue 2px;
     /* background-color: grey; */
 }
@@ -62,8 +62,6 @@ fieldset {
     padding: 0;
     margin: 0;
 }
-
-/* INPUT ----------------*/
 
 
     .form-group {
@@ -204,4 +202,6 @@ fieldset {
 .reg-but{
     color: lightblue;
 }
+
+/* exit button */
 
