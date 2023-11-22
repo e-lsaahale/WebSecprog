@@ -1,6 +1,6 @@
 function InputLength() {
 
-    var usnInput = document.getElementById("username").value;
+    var usnInput = document.getElementById("username").value.trim();
     var usnLength = usnInput.length;
 
     var passInput = document.getElementById("password").value;

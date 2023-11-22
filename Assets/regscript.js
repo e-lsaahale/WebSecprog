@@ -1,6 +1,6 @@
 function inputValidation(){
 
-    var input = document.getElementById("name").value.trimStart();
+    var input = document.getElementById("name").value.trim();
     var length = input.length;
 
     if(length == 0){
@@ -18,7 +18,7 @@ function inputValidation(){
         if(length == 0){
             alert("Username cannot empty");
         }
-        else if (length < 6 || length > 9) {
+        else if (length < 6 || length > 16) {
             alert("Username must be between 6 and 16 characters"); //6-16
         } 
         else if(!regex.test(input)){
@@ -38,7 +38,7 @@ function inputValidation(){
             }
             else{
 
-                var input = document.getElementById("age").value;
+                var input = document.getElementById("age").value.trim();
                 var length = input.length
 
                 if(length == 0){
@@ -75,4 +75,14 @@ function inputValidation(){
     }
 
     return false;
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const errorParam = urlParams.get('error');
+
+if (errorParam === '1') {
+    alert("something wrong");
+
+    const newUrl = window.location.pathname;
+    history.replaceState({}, document.title, newUrl);
 }
