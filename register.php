@@ -45,12 +45,12 @@
                     <label class="user-label">Password</label>
                   </div>
                   <br><br>
-                  <button class="btn nunito" onclick="return inputValidation()">Login</button>
+                  <button class="btn nunito" onclick="inputValidation()">Register</button>
             </form>
         </div>
 
         <div class="reg-bar justify-center align-center flex">
-            <p class="reg-txt nunito">already have an account? <a class="reg-but" href="login.php">login</a> here</p>
+            <p class="reg-txt nunito">already have an account? <a class="reg-but" href="login.php">Login</a> here</p>
         </div>
 
     </div>

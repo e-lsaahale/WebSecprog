@@ -35,21 +35,24 @@ CREATE TABLE `users` (
   `Username` varchar(16) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Age` int(11) NOT NULL,
-  `Passwd` varchar(16) NOT NULL
-) ;
+  `Passwd` varchar(255) NOT NULL,
+  `Bio` varchar(30)
+);
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Id`, `Name`, `Username`, `Email`, `Age`, `Passwd`) VALUES
-(1, 'Elsa', 'elsa123', 'elsa@gmail.com', 20, 'elsa1234'),
-(2, 'Bima', 'bima123', 'bima@gmail.com', 19, 'bima1234'),
-(3, 'Fili', 'fili6969', 'fili69@gmail.com', 20, 'fili1234'),
-(4, 'brykun', 'bryant', 'bryant69@gmail.com', 21, 'bryant1234');
+INSERT INTO `users` (`Id`, `Name`, `Username`, `Email`, `Age`, `Passwd`, `Bio`) VALUES
+(1, 'ini dummy', 'dummy1', 'dummy1@gmail.com', 21, '$2y$10$CTuirp7RY/5iGGddeZ22Qep3LZF5YGunfpNNNwpYt2ZCUnd2joHuO', 'haha'),
+(2, 'dummy666', 'dummy666', 'dummy666@gmail.com', 66, '$2y$10$1ter2FOeFP3RlJ5XK00pFuC56swh6QW8Oeam/90n6s1O0VEOKmJ5e', NULL);
+-- (1, 'Elsa', 'elsa123', 'elsa@gmail.com', 20, 'elsa1234'),
+-- (2, 'Bima', 'bima123', 'bima@gmail.com', 19, 'bima1234'),
+-- (3, 'Fili', 'fili6969', 'fili69@gmail.com', 20, 'fili1234'),
+-- (4, 'brykun', 'bryant', 'bryant69@gmail.com', 21, 'bryant1234');
 
 ALTER TABLE users
-MODIFY COLUMN Id INT  AUTO_INCREMENT, AUTO_INCREMENT = 5,
+MODIFY COLUMN Id INT  AUTO_INCREMENT, AUTO_INCREMENT = 3,
 ADD PRIMARY KEY(Id);
 
 ALTER TABLE users
@@ -71,6 +74,35 @@ ALTER TABLE users
 MODIFY COLUMN Age INT NOT NULL,
 ADD CONSTRAINT chk_age_range CHECK (Age BETWEEN 17 AND 99);
 
-ALTER TABLE users
-MODIFY COLUMN Passwd VARCHAR(16) NOT NULL,
-ADD CONSTRAINT chk_passwd_length CHECK (LENGTH(Passwd) BETWEEN 8 AND 16);
+
+--
+-- Dumping data for table `post`
+--
+
+CREATE TABLE `post` (
+  `post_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `message` text NOT NULL,
+  `user_id` int(11) NOT NULL
+  
+);
+
+INSERT INTO `post` (`post_id`, `message`, `user_id`) VALUES
+(1, 'dummy tes 111', 1),
+(2, 'dummy666 - Dummy666', 1);
+
+create table info(
+	`id` int(11) NOT NULL,
+  `attempt` int(11),
+  `sess` varchar(255),
+  `times` TIMESTAMP DEFAULT '2012-12-12 12:12:12' ON UPDATE CURRENT_TIMESTAMP,
+  `stat` boolean,
+  FOREIGN KEY (`id`) REFERENCES `users` (`Id`)
+);
+
+ALTER TABLE info
+MODIFY COLUMN times TIMESTAMP DEFAULT '2012-12-12 12:12:12';
+
+INSERT INTO `info` (`id`, `attempt`, `sess`, `times`, `stat`) VALUES
+(1, 0, '36fa2b9b02e7825f7c5265d6831b40ab16ac3a6b9e11a5064520e7ba4974aa0e', '2012-12-12 12:12:12', 1);
+    
+
