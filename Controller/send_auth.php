@@ -45,8 +45,7 @@
                 $stmt->close();
                 echo "success";
             }else{
-                echo "<script>window.location.href='../send.php?error=1';</script>";
-                exit();
+                die("Failed to validate user input");
             }
         }
     }

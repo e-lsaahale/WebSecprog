@@ -8,41 +8,39 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $length = strlen($fullname);
     if($length < 5 || $length > 25){ 
         die ("Name must be between 5 and 25 characters!");
-        exit();
-        
+
     }
 
     $username = trim(htmlspecialchars($_POST['username']));
     $length = strlen($username);
     if($length < 6 || $length > 25){ 
         die ("Username must be between 6 and 25 characters!");
-        exit();
+
     }
 
     $email = trim($_POST['email']);
     $email_sanitized = filter_var($email, FILTER_SANITIZE_EMAIL);
     if(!filter_var($email_sanitized, FILTER_VALIDATE_EMAIL)){
         die ("Wrong email format!");
-        exit();
+
     }
     
     $age = trim($_POST['age']);
     if($age < 17 || $age > 99){
         die ("Age must be between 17 and 99!");
-        exit();
+
     }
 
     $password = $_POST['password'];
     $length = strlen($password);
     if($length < 8 || $length > 16){ 
         die ("Password length must be between 8 and 16 characters");
-        exit();
+
     }
     else if (!preg_match('/[A-Z]/', $password) || !preg_match('/[0-9]/', $password)){
         die ("password must be contain at least one capital character and one number!");
-        
-    }
 
+    }
 
     $query = "SELECT * FROM users where Username = ?";
     $stmt = $conn->prepare($query);
